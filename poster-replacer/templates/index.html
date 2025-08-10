@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Puch AI Vogue Poster Replacer</title>
+    <title>Puch AI Movie Poster Replacer</title>
     <style>
         /* Reset and base styling */
         body {
@@ -134,12 +134,12 @@
 <body>
     <header>
         <img class="logo" src="https://puch.ai/static/media/logo.3db8a7e3.svg" alt="Puch AI logo" />
-        <h1>Puch AI Vogue Poster Replacer</h1>
+        <h1>Puch AI Movie Poster Replacer</h1>
     </header>
 
     <main>
-        <h2>Replace Faces on Vogue Posters, Instantly!</h2>
-        <p class="description">Upload your photo and instantly transform it into a stylish Vogue poster. Powered by Puch AI and your custom pipeline.</p>
+        <h2>Replace Faces on Movie Posters, Instantly!</h2>
+        <p class="description">Upload your photo and instantly transform it into a stylish Movie poster. Powered by Puch AI and your custom pipeline.</p>
 
         <form method="post" enctype="multipart/form-data">
             <label for="userimg">Select your photo:</label><br />
@@ -160,8 +160,8 @@
             {% endif %}
             {% if output_img %}
             <div class="img-box">
-                <h3>Vogue Poster Output</h3>
-                <img src="{{ output_img }}" alt="Output Vogue Poster" />
+                <h3> Poster Output</h3>
+                <img src="{{ output_img }}" alt="Output Poster" />
                 <a href="{{ output_img }}" download>Download Image</a>
             </div>
             {% endif %}
