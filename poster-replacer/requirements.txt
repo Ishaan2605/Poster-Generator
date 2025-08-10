@@ -1,0 +1,6 @@
+rembg
+opencv-python
+numpy
+Pillow
+mediapipe
+requests

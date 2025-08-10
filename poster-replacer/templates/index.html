@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Puch AI Vogue Poster Replacer</title>
+    <style>
+        /* Reset and base styling */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0; padding: 0;
+            background: #f8faff;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        header {
+            background-color: #0048ba;
+            padding: 1.5rem 2rem;
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            box-shadow: 0 3px 10px rgb(0 0 0 / 0.1);
+        }
+        header img.logo {
+            height: 40px;
+        }
+        header h1 {
+            font-weight: 700;
+            font-size: 1.8rem;
+            margin: 0;
+        }
+        main {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem;
+        }
+        h2 {
+            color: #0048ba;
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            text-align: center;
+        }
+        p.description {
+            max-width: 600px;
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+            color: #555;
+        }
+        form {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 8px 20px rgb(0 72 186 / 0.1);
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        input[type="file"] {
+            margin-top: 1rem;
+            max-width: 100%;
+            cursor: pointer;
+        }
+        button {
+            margin-top: 1.5rem;
+            background-color: #0048ba;
+            color: white;
+            padding: 0.7rem 2rem;
+            font-size: 1rem;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        button:hover {
+            background-color: #003080;
+        }
+        .images-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+            max-width: 900px;
+            width: 100%;
+        }
+        .img-box {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 6px 18px rgb(0 0 0 / 0.12);
+            padding: 1rem;
+            width: 300px;
+            text-align: center;
+        }
+        .img-box img {
+            max-width: 100%;
+            border-radius: 4px;
+            box-shadow: 0 0 8px rgb(0 0 0 / 0.15);
+        }
+        .img-box h3 {
+            margin: 0.8rem 0 0.6rem;
+            color: #0048ba;
+        }
+        .error-msg {
+            color: #d62828;
+            margin-top: 1rem;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+        footer {
+            text-align: center;
+            padding: 1rem 0.5rem;
+            background: #003080;
+            color: white;
+            font-size: 0.9rem;
+            margin-top: auto;
+        }
+        @media (max-width: 720px) {
+            .images-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            .img-box {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img class="logo" src="https://puch.ai/static/media/logo.3db8a7e3.svg" alt="Puch AI logo" />
+        <h1>Puch AI Vogue Poster Replacer</h1>
+    </header>
+
+    <main>
+        <h2>Replace Faces on Vogue Posters, Instantly!</h2>
+        <p class="description">Upload your photo and instantly transform it into a stylish Vogue poster. Powered by Puch AI and your custom pipeline.</p>
+
+        <form method="post" enctype="multipart/form-data">
+            <label for="userimg">Select your photo:</label><br />
+            <input type="file" name="userimg" id="userimg" accept="image/*" required><br />
+            <button type="submit">Generate Poster</button>
+        </form>
+
+        {% if error %}
+            <p class="error-msg">{{ error }}</p>
+        {% endif %}
+
+        <div class="images-container">
+            {% if uploaded_img %}
+            <div class="img-box">
+                <h3>Your Uploaded Image</h3>
+                <img src="{{ uploaded_img }}" alt="User Uploaded Image" />
+            </div>
+            {% endif %}
+            {% if output_img %}
+            <div class="img-box">
+                <h3>Vogue Poster Output</h3>
+                <img src="{{ output_img }}" alt="Output Vogue Poster" />
+                <a href="{{ output_img }}" download>Download Image</a>
+            </div>
+            {% endif %}
+        </div>
+    </main>
+
+    <footer>
+        &copy; 2025 Powered by Puch AI & Your Innovation
+    </footer>
+</body>
+</html>
